@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:yes_no_app/Domain/Entities/message_entity.dart';
 
-final class HerMessageBubble extends StatelessWidget {
-  const HerMessageBubble({super.key, required this.message});
+final class HisMessageBubble extends StatelessWidget {
+  const HisMessageBubble({super.key, required this.message});
 
   final MessageEntity message;
 
@@ -27,7 +27,9 @@ final class HerMessageBubble extends StatelessWidget {
         const SizedBox(
           height: 8,
         ),
-        _ImageBubble(),
+        _ImageBubble(
+          image: message.image ?? '',
+        ),
         const SizedBox(
           height: 8,
         )
@@ -37,6 +39,10 @@ final class HerMessageBubble extends StatelessWidget {
 }
 
 final class _ImageBubble extends StatelessWidget {
+  const _ImageBubble({required this.image});
+
+  final String image;
+
   @override
   Widget build(BuildContext context) {
     final size = MediaQuery.of(context).size;
@@ -44,7 +50,7 @@ final class _ImageBubble extends StatelessWidget {
     return ClipRRect(
       borderRadius: BorderRadius.circular(20),
       child: Image.network(
-        'https://yesno.wtf/assets/yes/3-422e51268d64d78241720a7de52fe121.gif',
+        image,
         width: size.width * 0.5,
         height: 150,
         fit: BoxFit.cover,

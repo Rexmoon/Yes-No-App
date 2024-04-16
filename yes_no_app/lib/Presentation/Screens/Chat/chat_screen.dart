@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:yes_no_app/Domain/Entities/message_entity.dart';
 import 'package:yes_no_app/Presentation/Providers/chat_provider.dart';
-import 'package:yes_no_app/Presentation/Widgets/Chat/her_message_bubble.dart';
+import 'package:yes_no_app/Presentation/Widgets/Chat/his_message_bubble.dart';
 import 'package:yes_no_app/Presentation/Widgets/Chat/my_message_bubble.dart';
 import 'package:yes_no_app/Presentation/Widgets/Shared/message_field_box.dart';
 
@@ -45,7 +45,7 @@ final class _ChatView extends StatelessWidget {
                 final message = chatProvider.messages[index];
                 return message.fromWho == FromWho.mine
                     ? MyMessageBubble(message: message)
-                    : HerMessageBubble(message: message);
+                    : HisMessageBubble(message: message);
               },
             )),
             MessageFieldBox(
