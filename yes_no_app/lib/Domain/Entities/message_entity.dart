@@ -12,7 +12,7 @@ final class MessageEntity {
       required this.fromWho,
       this.forced = false});
 
-  MessageEntity.fromJson({required Map json})
+  MessageEntity.fromJson({required Map<String, dynamic> json})
       : message = json['answer'] ?? 'No message',
         image = json['image'],
         fromWho = FromWho.his,
